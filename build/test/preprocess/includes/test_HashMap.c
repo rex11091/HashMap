@@ -1,4 +1,7 @@
 ---
 - unity.h
+- Data.h
 - HashMap.h
+- LinkedList.h
+- IntegerCompare.h
 - build/temp/_test_HashMap.c

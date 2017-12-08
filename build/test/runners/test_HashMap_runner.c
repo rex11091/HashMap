@@ -30,7 +30,8 @@ char* GlobalOrderError;
 /*=======External Functions This Runner Calls=====*/
 extern void setUp(void);
 extern void tearDown(void);
-extern void test_HashMap_NeedToImplement(void);
+extern void test_HashMap_Given_empty_hash_table_and_value_5_is_added_expect_5_inserted(void);
+extern void test_HashMap_Given_empty_hash_table_and_value_5_and_3_is_added_expect_5_and_3_inserted(void);
 
 
 /*=======Test Reset Option=====*/
@@ -46,7 +47,8 @@ void resetTest(void)
 int main(void)
 {
   UnityBegin("test_HashMap.c");
-  RUN_TEST(test_HashMap_NeedToImplement, 12);
+  RUN_TEST(test_HashMap_Given_empty_hash_table_and_value_5_is_added_expect_5_inserted, 16);
+  RUN_TEST(test_HashMap_Given_empty_hash_table_and_value_5_and_3_is_added_expect_5_and_3_inserted, 39);
 
   return (UnityEnd());
 }

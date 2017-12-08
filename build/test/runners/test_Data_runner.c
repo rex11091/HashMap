@@ -30,7 +30,6 @@ char* GlobalOrderError;
 /*=======External Functions This Runner Calls=====*/
 extern void setUp(void);
 extern void tearDown(void);
-extern void test_IntegerCompare_NeedToImplement(void);
 
 
 /*=======Test Reset Option=====*/
@@ -45,8 +44,7 @@ void resetTest(void)
 /*=======MAIN=====*/
 int main(void)
 {
-  UnityBegin("test_IntegerCompare.c");
-  RUN_TEST(test_IntegerCompare_NeedToImplement, 12);
+  UnityBegin("test_Data.c");
 
   return (UnityEnd());
 }

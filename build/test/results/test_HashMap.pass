@@ -2,15 +2,18 @@
 :source:
   :path: test
   :file: test_HashMap.c
-:successes: []
+:successes:
+- :test: test_HashMap_Given_empty_hash_table_and_value_5_is_added_expect_5_inserted
+  :line: 16
+  :message: ''
+- :test: test_HashMap_Given_empty_hash_table_and_value_5_and_3_is_added_expect_5_and_3_inserted
+  :line: 39
+  :message: ''
 :failures: []
-:ignores:
-- :test: test_HashMap_NeedToImplement
-  :line: 14
-  :message: Need to Implement HashMap
+:ignores: []
 :counts:
-  :total: 1
-  :passed: 0
+  :total: 2
+  :passed: 2
   :failed: 0
-  :ignored: 1
+  :ignored: 0
 :stdout: []
