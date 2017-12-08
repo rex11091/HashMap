@@ -21,7 +21,7 @@ void ListAdd(LinkedList *list, Item *item)
     item->next = NULL;
 }
 
-/*
+
 Item *ListSearch(LinkedList *list ,void *data, Compare IntegerCompare){
 
   	Item *TempToPoint1 = NULL ;
@@ -41,7 +41,7 @@ Item *ListSearch(LinkedList *list ,void *data, Compare IntegerCompare){
       return TempToPoint2;
     }
 }
-*/
+
 
 void createItem(Item *item, void *data, Item *next){
   item->data = data;
