@@ -78,3 +78,24 @@ void test_hashMapSearch_given_5_3_then_search_3_expected_3_return(void){
   free(ali);
 
 }
+
+void test_hashMapRemove_given_5_3_then_remove_3_expected_3_return(void){
+  Data *data,*david,*ali;
+  HashTable hashTable;
+  HashMapInit(&hashTable,10);
+  david = dataCreate(5,"David");
+  _HashMapAdd(&hashTable,5,(void *)david, 7,(Compare)IntegerKeyCompare);
+  ali = dataCreate(3,"Ali");
+  _HashMapAdd(&hashTable,3,(void *)ali, 7,(Compare)IntegerKeyCompare);
+
+
+  data =  (Data *)(hashTable.list[7].head->next);
+  TEST_ASSERT_NOT_NULL(data);
+  data = (Data*)_HashMapRemove(&hashTable,3,7,(Compare)IntegerKeyCompare);
+  //TEST_ASSERT_EQUAL(3,data->key)
+  data =  (Data *)(hashTable.list[7].head->next);
+  TEST_ASSERT_NULL(data);
+  free(david);
+  free(ali);
+
+}

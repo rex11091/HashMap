@@ -33,6 +33,7 @@ extern void tearDown(void);
 extern void test_HashMap_Given_empty_hash_table_and_value_5_is_added_expect_5_inserted(void);
 extern void test_HashMap_Given_empty_hash_table_and_value_5_and_3_is_added_expect_5_and_3_inserted(void);
 extern void test_hashMapSearch_given_5_3_then_search_3_expected_3_return(void);
+extern void test_hashMapRemove_given_5_3_then_remove_3_expected_3_return(void);
 
 
 /*=======Test Reset Option=====*/
@@ -51,6 +52,7 @@ int main(void)
   RUN_TEST(test_HashMap_Given_empty_hash_table_and_value_5_is_added_expect_5_inserted, 16);
   RUN_TEST(test_HashMap_Given_empty_hash_table_and_value_5_and_3_is_added_expect_5_and_3_inserted, 39);
   RUN_TEST(test_hashMapSearch_given_5_3_then_search_3_expected_3_return, 63);
+  RUN_TEST(test_hashMapRemove_given_5_3_then_remove_3_expected_3_return, 82);
 
   return (UnityEnd());
 }

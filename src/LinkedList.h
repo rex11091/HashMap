@@ -22,7 +22,8 @@ struct LinkedList{
 void ListInit(LinkedList *list);
 void ListAdd(LinkedList *list, Item *item);
 Item *ListRemoveIDEither1stOrByName(LinkedList *list, char  *name);
-Data *ListSearch(LinkedList *list ,uint32_t key, Compare compareFunc);
+void *ListSearch(LinkedList *list ,uint32_t key, Compare compareFunc);
+void *Listremove(LinkedList *list, uint32_t key, Compare compareFunc);
 void createItem(Item *item, void *data, Item *next);
 
 #endif // _LINKEDLIST_H

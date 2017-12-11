@@ -27,6 +27,7 @@ void _HashMapAdd(HashTable *table,uint32_t key,void *data,int index,Compare comp
     Item *newItem = (Item *)malloc(sizeof(Item));
     createItem(newItem,data,NULL);
     if(index < table->size){
+      //search
         ListAdd(&table->list[index],newItem);
     }
 }
@@ -37,8 +38,8 @@ void *_HashMapSearch(HashTable *table,uint32_t key,int index,Compare compareFunc
 }
 
 void *_HashMapRemove(HashTable *table,uint32_t key,int index,Compare compareFunc){
-  //return compareFunc(key,daya)
-  //.........
+  if(&table->list->head!=NULL)
+    return Listremove(&table->list[index],key,(Compare) compareFunc);
 }
 
 /*

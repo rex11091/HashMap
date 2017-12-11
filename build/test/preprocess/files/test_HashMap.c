@@ -181,3 +181,53 @@ void test_hashMapSearch_given_5_3_then_search_3_expected_3_return(void){
 
 
 }
+
+
+
+void test_hashMapRemove_given_5_3_then_remove_3_expected_3_return(void){
+
+  Data *data,*david,*ali;
+
+  HashTable hashTable;
+
+  HashMapInit(&hashTable,10);
+
+  david = dataCreate(5,"David");
+
+  _HashMapAdd(&hashTable,5,(void *)david, 7,(Compare)IntegerKeyCompare);
+
+  ali = dataCreate(3,"Ali");
+
+  _HashMapAdd(&hashTable,3,(void *)ali, 7,(Compare)IntegerKeyCompare);
+
+
+
+
+
+  data = (Data *)(hashTable.list[7].head->next);
+
+  if ((((data)) != 
+
+ ((void *)0)
+
+ )) {} else {UnityFail( (((" Expected Non-NULL"))), (UNITY_UINT)((UNITY_UINT)((UNITY_UINT)(93))));};
+
+  data = (Data*)_HashMapRemove(&hashTable,3,7,(Compare)IntegerKeyCompare);
+
+
+
+  data = (Data *)(hashTable.list[7].head->next);
+
+  if ((((data)) == 
+
+ ((void *)0)
+
+ )) {} else {UnityFail( (((" Expected NULL"))), (UNITY_UINT)((UNITY_UINT)((UNITY_UINT)(97))));};
+
+  free(david);
+
+  free(ali);
+
+
+
+}

@@ -12,11 +12,14 @@
 - :test: test_hashMapSearch_given_5_3_then_search_3_expected_3_return
   :line: 63
   :message: ''
+- :test: test_hashMapRemove_given_5_3_then_remove_3_expected_3_return
+  :line: 82
+  :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 3
-  :passed: 3
+  :total: 4
+  :passed: 4
   :failed: 0
   :ignored: 0
 :stdout: []
