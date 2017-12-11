@@ -21,19 +21,19 @@ uint32_t HashusingModulo(uint32_t value,uint32_t range){
  return (value % range);
 }
 
-void _HashMapAdd(HashTable *table,void *data,int index){
-    Item *temp1;
-  //need implement if else conditon
+
+void _HashMapAdd(HashTable *table,uint32_t key,void *data,int index,Compare compareFunc){
+    Data *temp;
     Item *newItem = (Item *)malloc(sizeof(Item));
     createItem(newItem,data,NULL);
-  //  temp1=ListSearch(&table->list[index],data,IntegerCompare);
-    ListAdd(&table->list[index],newItem);
-
+    if(index < table->size){
+        ListAdd(&table->list[index],newItem);
+    }
 }
 
 void *_HashMapSearch(HashTable *table,uint32_t key,int index,Compare compareFunc){
-    //return compareFunc(key,daya)
-
+  if(&table->list->head!=NULL)
+      return ListSearch(&table->list[index],key,(Compare)compareFunc);
 }
 
 void *_HashMapRemove(HashTable *table,uint32_t key,int index,Compare compareFunc){

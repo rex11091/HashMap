@@ -22,7 +22,7 @@ struct HashTable{
 uint32_t HashusingModulo(uint32_t value,uint32_t range);
 void HashMapInit(HashTable *table,int size);
 
-void _HashMapAdd(HashTable *table,void *data,int index);
+void _HashMapAdd(HashTable *table,uint32_t key,void *data,int index,Compare compareFunc);
 
 void *_HashMapSearch(HashTable *table,uint32_t key,int index,Compare compareFunc);
 void *_HashMapRemove(HashTable *table,uint32_t key,int index,Compare compareFunc);

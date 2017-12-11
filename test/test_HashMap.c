@@ -18,7 +18,7 @@ void test_HashMap_Given_empty_hash_table_and_value_5_is_added_expect_5_inserted(
   HashTable hashTable;
   HashMapInit(&hashTable,10);
   data = dataCreate(5,"David");
-  _HashMapAdd(&hashTable,(void*)data,7);
+  _HashMapAdd(&hashTable,5,(void *)data, 7,(Compare)IntegerKeyCompare);
 
   TEST_ASSERT_NOT_NULL(hashTable.list[7].head);
   data = (Data *)(hashTable.list[7].head->data);
@@ -42,9 +42,9 @@ void test_HashMap_Given_empty_hash_table_and_value_5_and_3_is_added_expect_5_and
   HashMapInit(&hashTable,10);
 
   David = dataCreate(5,"David");
-  _HashMapAdd(&hashTable,(void*)David,7);
+  _HashMapAdd(&hashTable,5,(void *)David, 7,(Compare)IntegerKeyCompare);
   Ali = dataCreate(3,"Ali");
-  _HashMapAdd(&hashTable,(void*)Ali,7);
+  _HashMapAdd(&hashTable,3,(void *)Ali, 7,(Compare)IntegerKeyCompare);
 
   TEST_ASSERT_NOT_NULL(hashTable.list[7].head);
   data = (Data *)(hashTable.list[7].head->data);
@@ -56,5 +56,25 @@ void test_HashMap_Given_empty_hash_table_and_value_5_and_3_is_added_expect_5_and
   TEST_ASSERT_EQUAL(3,data->key);
   TEST_ASSERT_EQUAL_STRING("Ali",data->name);
 
-  free(data);
+  free(David);
+  free(Ali);
+}
+
+void test_hashMapSearch_given_5_3_then_search_3_expected_3_return(void){
+  Data *data,*david,*ali;
+  HashTable hashTable;
+  HashMapInit(&hashTable,10);
+  david = dataCreate(5,"David");
+  _HashMapAdd(&hashTable,5,(void *)david, 7,(Compare)IntegerKeyCompare);
+  ali = dataCreate(3,"Ali");
+  _HashMapAdd(&hashTable,3,(void *)ali, 7,(Compare)IntegerKeyCompare);
+
+
+  data = (Data*)_HashMapSearch(&hashTable,3,7,(Compare)IntegerKeyCompare);
+  TEST_ASSERT_NOT_NULL(data);
+  TEST_ASSERT_EQUAL(3,data->key);
+  TEST_ASSERT_EQUAL_STRING("Ali",data->name);
+  free(david);
+  free(ali);
+
 }

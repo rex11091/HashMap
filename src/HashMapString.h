@@ -1,0 +1,5 @@
+#ifndef _HASHMAPSTRING_H
+#define _HASHMAPSTRING_H
+
+
+#endif // _HASHMAPSTRING_H

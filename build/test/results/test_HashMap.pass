@@ -9,11 +9,14 @@
 - :test: test_HashMap_Given_empty_hash_table_and_value_5_and_3_is_added_expect_5_and_3_inserted
   :line: 39
   :message: ''
+- :test: test_hashMapSearch_given_5_3_then_search_3_expected_3_return
+  :line: 63
+  :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 2
-  :passed: 2
+  :total: 3
+  :passed: 3
   :failed: 0
   :ignored: 0
 :stdout: []

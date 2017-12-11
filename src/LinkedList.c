@@ -21,8 +21,7 @@ void ListAdd(LinkedList *list, Item *item)
     item->next = NULL;
 }
 
-
-Item *ListSearch(LinkedList *list ,void *data, Compare IntegerCompare){
+Data *ListSearch(LinkedList *list ,uint32_t key, Compare compareFunc){
 
   	Item *TempToPoint1 = NULL ;
   	Item *TempToPoint2 = list->head;
@@ -33,14 +32,15 @@ Item *ListSearch(LinkedList *list ,void *data, Compare IntegerCompare){
 
   	else
   	{
-  		while(IntegerCompare(data,TempToPoint2->data)!=0)
+  		while(compareFunc((void*)key,(void*)&(((Data *)TempToPoint2->data))->key) !=1)
   		{
   			TempToPoint1 = TempToPoint2;
   			TempToPoint2 = TempToPoint2->next;
   		}
-      return TempToPoint2;
+      return TempToPoint2->data;
     }
 }
+
 
 
 void createItem(Item *item, void *data, Item *next){

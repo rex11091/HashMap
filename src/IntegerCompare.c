@@ -3,7 +3,7 @@
 
 int IntegerKeyCompare(uint32_t key,Data *data)
 {
-  return key = data->key;
+  return key == data->key;
 }
 
 

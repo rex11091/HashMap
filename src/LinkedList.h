@@ -1,6 +1,7 @@
 #ifndef _LINKEDLIST_H
 #define _LINKEDLIST_H
 
+#include "Data.h"
 #include "IntegerCompare.h"
 
 typedef struct Item Item;
@@ -8,7 +9,7 @@ typedef struct LinkedList LinkedList;
 
 struct Item{
   Item *next;
-  void *data;
+  Data *data;
 };
 
 struct LinkedList{
@@ -21,7 +22,7 @@ struct LinkedList{
 void ListInit(LinkedList *list);
 void ListAdd(LinkedList *list, Item *item);
 Item *ListRemoveIDEither1stOrByName(LinkedList *list, char  *name);
-Item *ListSearch(LinkedList *list ,void *data, Compare IntegerCompare);
+Data *ListSearch(LinkedList *list ,uint32_t key, Compare compareFunc);
 void createItem(Item *item, void *data, Item *next);
 
 #endif // _LINKEDLIST_H

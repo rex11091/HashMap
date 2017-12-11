@@ -1,0 +1,16 @@
+---
+:source:
+  :path: test
+  :file: test_HashMapString.c
+:successes: []
+:failures: []
+:ignores:
+- :test: test_HashMapString_NeedToImplement
+  :line: 14
+  :message: Need to Implement HashMapString
+:counts:
+  :total: 1
+  :passed: 0
+  :failed: 0
+  :ignored: 1
+:stdout: []
