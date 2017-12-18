@@ -23,12 +23,12 @@ uint32_t HashusingModulo(uint32_t value,uint32_t range){
 
 
 void _HashMapAdd(HashTable *table,uint32_t key,void *data,int index,Compare compareFunc){
-    Data *temp;
     Item *newItem = (Item *)malloc(sizeof(Item));
     createItem(newItem,data,NULL);
     if(index < table->size){
       //search
-        ListAdd(&table->list[index],newItem);
+     ListAddOrReplace(&table->list[index],newItem,key,compareFunc);
+      //  ListAdd(&table->list[index],newItem);
     }
 }
 
@@ -41,28 +41,3 @@ void *_HashMapRemove(HashTable *table,uint32_t key,int index,Compare compareFunc
   if(&table->list->head!=NULL)
     return Listremove(&table->list[index],key,(Compare) compareFunc);
 }
-
-/*
-void initHashMapAddInteger(HashTable *table,int data){
-  // compute hash value
-  // hashValue = hash(..........)
-  uint32_t hashValue = HashusingModulo(data,table->size);
-  // _hashMapAdd(table,data,hashValue)
-  _HashMapAdd(table,(void *)data,hashValue);
-}
-
-
-void initHashMapSearchInteger(HashTable *table,uint32_t key){
-
-  // compute hash value
-  // hashValue = hash(..........)
-  uint32_t hashValue = HashusingModulo(data,table->size);
-  // _hashMapSearch(table,data,hashValue)
-}
-void initHashMapRemoveInteger(HashTable *table,uint32_t key){
-  // compute hash value
-  // hashValue = hash(..........)
-  uint32_t hashValue = HashusingModulo(data,table->size);
-  // _hashMapRemove(table,data,hashValue)
-}
-*/

@@ -1,6 +1,5 @@
-#include "HashMapString.h"
-
-void HashMapAddString(HashTable *table,char* data,uint32_t key){
+#include "HashMapInteger.h"
+void HashMapAddInteger(HashTable *table,int* data,uint32_t key){
   // compute hash value
   // hashValue = hash(..........)
   uint32_t hashValue = HashusingModulo(key,table->size);
@@ -9,7 +8,7 @@ void HashMapAddString(HashTable *table,char* data,uint32_t key){
 }
 
 
-void *HashMapSearchString(HashTable *table,uint32_t key){
+void *HashMapSearchInteger(HashTable *table,uint32_t key){
 
   // compute hash value
   // hashValue = hash(..........)
@@ -19,7 +18,7 @@ void *HashMapSearchString(HashTable *table,uint32_t key){
 }
 
 
-void HashMapRemoveString(HashTable *table,uint32_t key){
+void HashMapRemoveInteger(HashTable *table,uint32_t key){
   // compute hash value
   // hashValue = hash(..........)
   uint32_t hashValue = HashusingModulo(key,table->size);

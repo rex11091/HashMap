@@ -4,4 +4,6 @@
 - HashMap.h
 - LinkedList.h
 - IntegerCompare.h
+- HashMapString.h
+- HashMapInteger.h
 - build/temp/_test_HashMap.c

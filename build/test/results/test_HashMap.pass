@@ -3,23 +3,44 @@
   :path: test
   :file: test_HashMap.c
 :successes:
-- :test: test_HashMap_Given_empty_hash_table_and_value_5_is_added_expect_5_inserted
-  :line: 16
+- :test: test_HashMap_Given_empty_hash_table_and_David_is_added_expect_David_inserted
+  :line: 18
   :message: ''
-- :test: test_HashMap_Given_empty_hash_table_and_value_5_and_3_is_added_expect_5_and_3_inserted
-  :line: 39
+- :test: test_HashMap_Given_empty_hash_table_and_David_and_ALI_is_added_expect_DAvid_and_Ali_inserted
+  :line: 41
   :message: ''
-- :test: test_hashMapSearch_given_5_3_then_search_3_expected_3_return
-  :line: 63
+- :test: test_hashMapSearch_given_David_Ali_then_search_Ali_expected_Ali_return
+  :line: 65
   :message: ''
-- :test: test_hashMapRemove_given_5_3_then_remove_3_expected_3_return
-  :line: 82
+- :test: test_hashMapRemove_given_David_Ali_then_remove_Ali_expected_Ali_return
+  :line: 84
+  :message: ''
+- :test: test_HashMapAddString_Given_empty_hash_table_and_David_is_added_expect_David_inserted
+  :line: 116
+  :message: ''
+- :test: test_HashMapAddString_Given_empty_hash_table_and_David_and_Ali_is_added_expect_David_and_Ali
+  :line: 140
+  :message: ''
+- :test: test_HashMapAddString_Given_empty_hash_table_adding_duplicated_
+  :line: 175
+  :message: ''
+- :test: test_hashMapSearchString_given_David_Ali_then_search_Ali_expected_Ali_return
+  :line: 207
+  :message: ''
+- :test: test_hashMapRemoveString_given_David_15_then_remove_David_expected_Ali_only_in_table
+  :line: 226
+  :message: ''
+- :test: test_hashMapaddInteger_add_8_expect_8
+  :line: 249
+  :message: ''
+- :test: test_hashMapaddInteger_add_8_16_expect_8_16
+  :line: 264
   :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 4
-  :passed: 4
+  :total: 11
+  :passed: 11
   :failed: 0
   :ignored: 0
 :stdout: []

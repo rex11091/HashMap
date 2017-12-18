@@ -9,6 +9,6 @@ struct Data{
   void *name;
 };
 
-Data *dataCreate(uint32_t key, char *name);
+Data *dataCreate(uint32_t key, void *name);
 
 #endif // _DATA_H
