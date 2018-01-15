@@ -8,8 +8,11 @@
   Unity.NumberOfTests++; \
   if (TEST_PROTECT()) \
   { \
+    CEXCEPTION_T e; \
+    Try { \
       setUp(); \
       TestFunc(); \
+    } Catch(e) { TEST_ASSERT_EQUAL_HEX32_MESSAGE(CEXCEPTION_NONE, e, "Unhandled Exception!"); } \
   } \
   if (TEST_PROTECT()) \
   { \
@@ -22,6 +25,7 @@
 #include "unity.h"
 #include <setjmp.h>
 #include <stdio.h>
+#include "CException.h"
 
 int GlobalExpectCount;
 int GlobalVerifyOrder;
@@ -31,16 +35,22 @@ char* GlobalOrderError;
 extern void setUp(void);
 extern void tearDown(void);
 extern void test_HashMap_Given_empty_hash_table_and_David_is_added_expect_David_inserted(void);
+extern void test_HashMap_Given_empty_hash_table_over_table_size_index_is_inserted_expect_exceptions(void);
 extern void test_HashMap_Given_empty_hash_table_and_David_and_ALI_is_added_expect_DAvid_and_Ali_inserted(void);
+extern void test_HashMap_Given_empty_hash_table_and_David_and_duplicated_key_data_IS_Ali_expect_return_ALI_with_key5(void);
 extern void test_hashMapSearch_given_David_Ali_then_search_Ali_expected_Ali_return(void);
 extern void test_hashMapRemove_given_David_Ali_then_remove_Ali_expected_Ali_return(void);
+extern void test_hashMapRemove_given_over_size_limit_expected_exceptions(void);
 extern void test_HashMapAddString_Given_empty_hash_table_and_David_is_added_expect_David_inserted(void);
 extern void test_HashMapAddString_Given_empty_hash_table_and_David_and_Ali_is_added_expect_David_and_Ali(void);
 extern void test_HashMapAddString_Given_empty_hash_table_adding_duplicated_(void);
 extern void test_hashMapSearchString_given_David_Ali_then_search_Ali_expected_Ali_return(void);
-extern void test_hashMapRemoveString_given_David_15_then_remove_David_expected_Ali_only_in_table(void);
+extern void test_hashMapRemoveString_given_David_5_Ali_15_then_remove_David_expected_Ali_only_in_table(void);
 extern void test_hashMapaddInteger_add_8_expect_8(void);
-extern void test_hashMapaddInteger_add_8_16_expect_8_16(void);
+extern void test_hashMapaddInteger_add_8_19_expect_8_19(void);
+extern void test_hashMapaddInteger_added_duplicated_expect_19(void);
+extern void test_hashMapSearch_search_8_expect_8(void);
+extern void test_hashMapRemoveinteger_remove_19_expect_8_only_in_list_1(void);
 
 
 /*=======Test Reset Option=====*/
@@ -56,17 +66,23 @@ void resetTest(void)
 int main(void)
 {
   UnityBegin("test_HashMap.c");
-  RUN_TEST(test_HashMap_Given_empty_hash_table_and_David_is_added_expect_David_inserted, 18);
-  RUN_TEST(test_HashMap_Given_empty_hash_table_and_David_and_ALI_is_added_expect_DAvid_and_Ali_inserted, 41);
-  RUN_TEST(test_hashMapSearch_given_David_Ali_then_search_Ali_expected_Ali_return, 65);
-  RUN_TEST(test_hashMapRemove_given_David_Ali_then_remove_Ali_expected_Ali_return, 84);
-  RUN_TEST(test_HashMapAddString_Given_empty_hash_table_and_David_is_added_expect_David_inserted, 116);
-  RUN_TEST(test_HashMapAddString_Given_empty_hash_table_and_David_and_Ali_is_added_expect_David_and_Ali, 140);
-  RUN_TEST(test_HashMapAddString_Given_empty_hash_table_adding_duplicated_, 175);
-  RUN_TEST(test_hashMapSearchString_given_David_Ali_then_search_Ali_expected_Ali_return, 207);
-  RUN_TEST(test_hashMapRemoveString_given_David_15_then_remove_David_expected_Ali_only_in_table, 226);
-  RUN_TEST(test_hashMapaddInteger_add_8_expect_8, 249);
-  RUN_TEST(test_hashMapaddInteger_add_8_16_expect_8_16, 264);
+  RUN_TEST(test_HashMap_Given_empty_hash_table_and_David_is_added_expect_David_inserted, 27);
+  RUN_TEST(test_HashMap_Given_empty_hash_table_over_table_size_index_is_inserted_expect_exceptions, 49);
+  RUN_TEST(test_HashMap_Given_empty_hash_table_and_David_and_ALI_is_added_expect_DAvid_and_Ali_inserted, 74);
+  RUN_TEST(test_HashMap_Given_empty_hash_table_and_David_and_duplicated_key_data_IS_Ali_expect_return_ALI_with_key5, 106);
+  RUN_TEST(test_hashMapSearch_given_David_Ali_then_search_Ali_expected_Ali_return, 134);
+  RUN_TEST(test_hashMapRemove_given_David_Ali_then_remove_Ali_expected_Ali_return, 161);
+  RUN_TEST(test_hashMapRemove_given_over_size_limit_expected_exceptions, 187);
+  RUN_TEST(test_HashMapAddString_Given_empty_hash_table_and_David_is_added_expect_David_inserted, 219);
+  RUN_TEST(test_HashMapAddString_Given_empty_hash_table_and_David_and_Ali_is_added_expect_David_and_Ali, 243);
+  RUN_TEST(test_HashMapAddString_Given_empty_hash_table_adding_duplicated_, 278);
+  RUN_TEST(test_hashMapSearchString_given_David_Ali_then_search_Ali_expected_Ali_return, 310);
+  RUN_TEST(test_hashMapRemoveString_given_David_5_Ali_15_then_remove_David_expected_Ali_only_in_table, 338);
+  RUN_TEST(test_hashMapaddInteger_add_8_expect_8, 369);
+  RUN_TEST(test_hashMapaddInteger_add_8_19_expect_8_19, 393);
+  RUN_TEST(test_hashMapaddInteger_added_duplicated_expect_19, 426);
+  RUN_TEST(test_hashMapSearch_search_8_expect_8, 456);
+  RUN_TEST(test_hashMapRemoveinteger_remove_19_expect_8_only_in_list_1, 484);
 
   return (UnityEnd());
 }

@@ -4,43 +4,65 @@
   :file: test_HashMap.c
 :successes:
 - :test: test_HashMap_Given_empty_hash_table_and_David_is_added_expect_David_inserted
-  :line: 18
+  :line: 27
+  :message: ''
+- :test: test_HashMap_Given_empty_hash_table_over_table_size_index_is_inserted_expect_exceptions
+  :line: 49
   :message: ''
 - :test: test_HashMap_Given_empty_hash_table_and_David_and_ALI_is_added_expect_DAvid_and_Ali_inserted
-  :line: 41
+  :line: 74
+  :message: ''
+- :test: test_HashMap_Given_empty_hash_table_and_David_and_duplicated_key_data_IS_Ali_expect_return_ALI_with_key5
+  :line: 106
   :message: ''
 - :test: test_hashMapSearch_given_David_Ali_then_search_Ali_expected_Ali_return
-  :line: 65
+  :line: 134
   :message: ''
 - :test: test_hashMapRemove_given_David_Ali_then_remove_Ali_expected_Ali_return
-  :line: 84
+  :line: 161
+  :message: ''
+- :test: test_hashMapRemove_given_over_size_limit_expected_exceptions
+  :line: 187
   :message: ''
 - :test: test_HashMapAddString_Given_empty_hash_table_and_David_is_added_expect_David_inserted
-  :line: 116
+  :line: 219
   :message: ''
 - :test: test_HashMapAddString_Given_empty_hash_table_and_David_and_Ali_is_added_expect_David_and_Ali
-  :line: 140
+  :line: 243
   :message: ''
 - :test: test_HashMapAddString_Given_empty_hash_table_adding_duplicated_
-  :line: 175
+  :line: 278
   :message: ''
 - :test: test_hashMapSearchString_given_David_Ali_then_search_Ali_expected_Ali_return
-  :line: 207
+  :line: 310
   :message: ''
-- :test: test_hashMapRemoveString_given_David_15_then_remove_David_expected_Ali_only_in_table
-  :line: 226
+- :test: test_hashMapRemoveString_given_David_5_Ali_15_then_remove_David_expected_Ali_only_in_table
+  :line: 338
   :message: ''
 - :test: test_hashMapaddInteger_add_8_expect_8
-  :line: 249
+  :line: 369
   :message: ''
-- :test: test_hashMapaddInteger_add_8_16_expect_8_16
-  :line: 264
+- :test: test_hashMapaddInteger_add_8_19_expect_8_19
+  :line: 393
+  :message: ''
+- :test: test_hashMapaddInteger_added_duplicated_expect_19
+  :line: 426
+  :message: ''
+- :test: test_hashMapSearch_search_8_expect_8
+  :line: 456
+  :message: ''
+- :test: test_hashMapRemoveinteger_remove_19_expect_8_only_in_list_1
+  :line: 484
   :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 11
-  :passed: 11
+  :total: 17
+  :passed: 17
   :failed: 0
   :ignored: 0
-:stdout: []
+:stdout:
+- " out of table->size Limit (err = 91)"
+- "-----------------------------------------------------------------"
+- " out of table->size Limit (err = 91)"
+- "-----------------------------------------------------------------"

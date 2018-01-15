@@ -1,6 +1,7 @@
 #ifndef _HASHMAP_H
 #define _HASHMAP_H
-#include  "LinkedList.h"
+
+#include "LinkedList.h"
 #include "IntegerCompare.h"
 #include "data.h"
 #include <malloc.h>
@@ -8,6 +9,7 @@
 #include <stdio.h>
 
 #define SIZE_FACTOR       1
+#define OUT_OF_HASH_SIZE_LIMIT   91
 
 typedef int(*compare)(void *data,void **refdata);
 typedef struct HashTable HashTable;

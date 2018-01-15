@@ -6,4 +6,6 @@
 - IntegerCompare.h
 - HashMapString.h
 - HashMapInteger.h
+- Exception.h
+- CException.h
 - build/temp/_test_HashMap.c

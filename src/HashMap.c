@@ -3,6 +3,8 @@
 #include <malloc.h>
 #include <stdint.h>
 #include <stdio.h>
+#include "Exception.h"
+#include "CException.h"
 
 
 
@@ -30,14 +32,17 @@ void _HashMapAdd(HashTable *table,uint32_t key,void *data,int index,Compare comp
      ListAddOrReplace(&table->list[index],newItem,key,compareFunc);
       //  ListAdd(&table->list[index],newItem);
     }
+     else
+    Throw(createException(" out of table->size Limit", OUT_OF_HASH_SIZE_LIMIT));
 }
 
 void *_HashMapSearch(HashTable *table,uint32_t key,int index,Compare compareFunc){
-  if(&table->list->head!=NULL)
-      return ListSearch(&table->list[index],key,(Compare)compareFunc);
+        return ListSearch(&table->list[index],key,(Compare)compareFunc);
 }
 
 void *_HashMapRemove(HashTable *table,uint32_t key,int index,Compare compareFunc){
-  if(&table->list->head!=NULL)
+if(index>=table->size){
+        Throw(createException(" out of table->size Limit", OUT_OF_HASH_SIZE_LIMIT));
+  }
     return Listremove(&table->list[index],key,(Compare) compareFunc);
 }
