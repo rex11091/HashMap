@@ -15,7 +15,6 @@ void HashMapAddString(HashTable *table,char* data,uint32_t key){
   Catch(ex)
   {
     Throw(ex);
-    freeException1(ex);
   }
 }
 
@@ -41,6 +40,5 @@ void HashMapRemoveString(HashTable *table,uint32_t key){
   Catch(ex)
   {
     Throw(ex);
-    freeException1(ex);
   }
 }
