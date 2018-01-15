@@ -562,9 +562,17 @@ void test_hashMapSearchString_given_David_Ali_then_search_Ali_expected_Ali_retur
 
  )) {} else {UnityFail( (((" Expected Non-NULL"))), (UNITY_UINT)((UNITY_UINT)((UNITY_UINT)(320))));};
 
+  UnityAssertEqualNumber((UNITY_INT)((15)), (UNITY_INT)((Search->key)), (
 
+ ((void *)0)
 
+ ), (UNITY_UINT)(321), UNITY_DISPLAY_STYLE_INT);
 
+  UnityAssertEqualString((const char*)(("Ali")), (const char*)((Search->name)), (
+
+ ((void *)0)
+
+ ), (UNITY_UINT)(322));
 
   free(david);
 

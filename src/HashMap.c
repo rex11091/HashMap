@@ -28,9 +28,7 @@ void _HashMapAdd(HashTable *table,uint32_t key,void *data,int index,Compare comp
     Item *newItem = (Item *)malloc(sizeof(Item));
     createItem(newItem,data,NULL);
     if(index < table->size){
-      //search
      ListAddOrReplace(&table->list[index],newItem,key,compareFunc);
-      //  ListAdd(&table->list[index],newItem);
     }
      else
     Throw(createException(" out of table->size Limit", OUT_OF_HASH_SIZE_LIMIT));

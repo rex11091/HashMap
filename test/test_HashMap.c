@@ -126,7 +126,7 @@ void test_HashMap_Given_empty_hash_table_and_David_and_duplicated_key_data_IS_Al
 /*
 *     index  ------
 *            |    |
-*            |    |                  search 3                          
+*            |    |                  search 3
 *       7    |  * | -->david->ali       ----------->      data = ali
 *            |    |
 *            |    |
@@ -177,12 +177,12 @@ void test_hashMapRemove_given_David_Ali_then_remove_Ali_expected_Ali_return(void
   free(ali);
 }
 /*
-*     index  ------                                 
-*            |    |                                       
-*            |    |                   remove                 
-*       7    |  * | -->david->ali-----------> over size limit expect exceptions                     
-*            |    |                                         
-*            |    |                                             
+*     index  ------
+*            |    |
+*            |    |                   remove
+*       7    |  * | -->david->ali-----------> over size limit expect exceptions
+*            |    |
+*            |    |
 */
 void test_hashMapRemove_given_over_size_limit_expected_exceptions(void){
   CEXCEPTION_T ex;
@@ -318,8 +318,8 @@ void test_hashMapSearchString_given_David_Ali_then_search_Ali_expected_Ali_retur
 
   Data *Search=HashMapSearchString(&hashTable,15);
   TEST_ASSERT_NOT_NULL(Search);
-  //TEST_ASSERT_EQUAL(15,Search->key);
-  //TEST_ASSERT_EQUAL_STRING("Ali",Search->name);
+  TEST_ASSERT_EQUAL(15,Search->key);
+  TEST_ASSERT_EQUAL_STRING("Ali",Search->name);
   free(david);
   free(ali);
 
@@ -358,12 +358,12 @@ void test_hashMapRemoveString_given_David_5_Ali_15_then_remove_David_expected_Al
 }
 /*-------------------------------------------- Test HaspMapinteger---------------------------------------------*/
 /*
-*     index  ------                                   
-*            |    |                                          
-*            |    |                          
-*       1    |  * | --> 8 
-*            |    |                                  
-*            |    |                                
+*     index  ------
+*            |    |
+*            |    |
+*       1    |  * | --> 8
+*            |    |
+*            |    |
 *
 */
 void test_hashMapaddInteger_add_8_expect_8(void){
@@ -382,12 +382,12 @@ void test_hashMapaddInteger_add_8_expect_8(void){
 }
 
 /*
-*     index  ------                                   
-*            |    |                                          
-*            |    |                          
+*     index  ------
+*            |    |
+*            |    |
 *       1    |  * | --> 8 -> 19
-*            |    |                                  
-*            |    |                                
+*            |    |
+*            |    |
 *
 */
 void test_hashMapaddInteger_add_8_19_expect_8_19(void){
@@ -445,12 +445,12 @@ void test_hashMapaddInteger_added_duplicated_expect_19(void){
 }
 
 /*
-*     index  ------                                             
-*            |    |                                                
-*            |    |               search 8                        
-*       1    |  * | -->8->19  ----------------->         search(8)         
-*            |    |                                                   
-*            |    |                                                   
+*     index  ------
+*            |    |
+*            |    |               search 8
+*       1    |  * | -->8->19  ----------------->         search(8)
+*            |    |
+*            |    |
 *
 */
 void test_hashMapSearch_search_8_expect_8(void){
@@ -502,4 +502,3 @@ void test_hashMapRemoveinteger_remove_19_expect_8_only_in_list_1(void){
   free(rex);
   free(rexGoh);
 }
-
